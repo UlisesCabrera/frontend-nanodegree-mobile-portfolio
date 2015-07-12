@@ -2,19 +2,12 @@
 var gulp = require('gulp'), 
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
-	csso = require('gulp-csso'),
 	imagemin = require('gulp-imagemin');
 
 gulp.task('scripts', function(){
 	return gulp.src('src/js/*.js')
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'))
-});
-
-gulp.task('css', function() {
-    return gulp.src('css/*.css')
-        .pipe(csso())
-        .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('images', function () {
@@ -26,5 +19,4 @@ gulp.task('images', function () {
 
 gulp.task('watch', function(){
 	gulp.watch('src/js/*.js',['scripts']);
-	gulp.watch('src/css/*.css',['css']);
 });
