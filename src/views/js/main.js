@@ -446,8 +446,8 @@ var resizePizzas = function(size) {
     }
 
 
-    // TODO: change to 3 sizes? no more xl? DONE :)
-    // Changes the slider value to a percent width DONE :)
+    // TODO: change to 3 sizes? no more xl? - DONE :)
+    // Changes the slider value to a percent width - DONE :)
     function changePizzaSizes(size) {
         var newwidth;
         switch (size) {
@@ -541,16 +541,15 @@ function updatePositions() {
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', function(argument) {
-    // body...
     requestAnimationFrame(updatePositions);
 });
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-    var cols = 8;
+    var cols = 6;
     var s = 256;
     var movingPizzas = document.querySelector("#movingPizzas1");
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 24; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
