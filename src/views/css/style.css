@@ -33,8 +33,9 @@ form {
   position: fixed;
   width: 73.333px;
   height: 100px;
-  z-index: -1;
   will-change: transform;
+  z-index: -1;
+  
 }
 
 .randomPizzaContainer {
@@ -44,7 +45,6 @@ form {
 
 .randomPizzaContainer:after {
   content: "";
-  display: table;
   clear:both;
 }
 

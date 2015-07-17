@@ -426,7 +426,7 @@ var resizePizzas = function(size) {
 
     // Changes the value for the size of the pizza above the slider
     function changeSliderLabel(size) {
-        var pizzaSize = document.querySelector("#pizzaSize");
+        var pizzaSize = document.getElementById("pizzaSize");
         switch (size) {
             case "1":
                 pizzaSize.innerHTML = "Small";
@@ -467,7 +467,7 @@ var resizePizzas = function(size) {
                 console.log("bug in sizeSwitcher");
         }
 
-        var rPizzas = document.querySelectorAll(".randomPizzaContainer"); // save location of the pizza container to use on loop -uc
+        var rPizzas = document.getElementsByClassName("randomPizzaContainer"); // save location of the pizza container to use on loop -uc
         // Iterates through pizza elements on the page and changes their widths
         for (var i = 0; i < rPizzas.length; i++) {
             rPizzas[i].style.width = newwidth + '%';
@@ -490,8 +490,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-    var pizzasDiv = document.getElementById("randomPizzas");
     pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -523,7 +523,7 @@ function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
     var scroll_top = document.body.scrollTop; // put the location of this event out of the loop so it does not get call each time the loops gets called -uc
-    var items = document.querySelectorAll('.mover');
+    var items = document.getElementsByClassName('mover');
     for (var i = 0; i < items.length; i++) {
         var phase = Math.sin((scroll_top / 1250) + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
@@ -540,16 +540,16 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', function(argument) {
+window.addEventListener('scroll', function() {
     requestAnimationFrame(updatePositions);
 });
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-    var cols = 6;
+    var cols = 8;
     var s = 256;
-    var movingPizzas = document.querySelector("#movingPizzas1");
-    for (var i = 0; i < 24; i++) {
+    var movingPizzas = document.getElementById("movingPizzas1");
+    for (var i = 0; i < 38; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
