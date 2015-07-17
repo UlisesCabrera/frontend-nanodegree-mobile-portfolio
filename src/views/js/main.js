@@ -522,7 +522,7 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
-    var scroll_top = document.body.scrollTop; // put the location of this event out of the loop so it does not get call each time the loops gets called -uc
+    var scroll_top = document.body.scrollTop; // Put this variable out of the loop to prevent the browser to go into a Read/Write phase each time it loops.
     var items = document.getElementsByClassName('mover');
     for (var i = 0; i < items.length; i++) {
         var phase = Math.sin((scroll_top / 1250) + (i % 5));
@@ -549,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
     var movingPizzas = document.getElementById("movingPizzas1");
-    for (var i = 0; i < 38; i++) {
+    for (var i = 0; i < 38; i++) { // no need for 200 moving pizzas in the background, one of the main reasons it was over the 60fps.
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
