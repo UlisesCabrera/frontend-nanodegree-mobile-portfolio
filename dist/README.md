@@ -1,5 +1,12 @@
 ## Website Performance Optimization portfolio project
 
+### How to test the performance?
+
+- Open the pizza.html on Google Chrome.
+- Go to the developers tools by right clicking on the page and selecting "Inspect Element"
+- Go to the Timeline section and click the record button.
+- Scroll thru the page and click stop to see the page performed.
+
 ### Steps to get 60fps on pizza.html when scrolling
 
 - Reduce the quantity of moving pizzas to just enough to fill out the container with pizzas.
